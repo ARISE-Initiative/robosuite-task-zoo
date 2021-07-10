@@ -7,6 +7,10 @@ with open(path.join(this_directory, 'README.md'), encoding='utf-8') as f:
     lines = f.readlines()
     long_description = ''.join(lines)
 
+print([
+  package for package in find_packages() if package.startswith("robosuite")
+])
+
 setup(
     name="robosuite_task_zoo",
     packages=[
