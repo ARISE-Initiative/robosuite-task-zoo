@@ -17,7 +17,7 @@ options["robots"] = ["Panda"]
 
 options["controller_configs"] = suite.load_controller_config(default_controller="OSC_POSITION")
 
-options["env_name"] = "ToolUse"
+options["env_name"] = "MultitaskKitchenDomain"
 
 
 env = suite.make(**options,
@@ -26,7 +26,8 @@ env = suite.make(**options,
                  ignore_done=True,
                  use_camera_obs=False,
                  horizon=100,
-                 control_freq=20,)
+                 control_freq=20,
+                 task_id=0)
 
 
 env.reset()
