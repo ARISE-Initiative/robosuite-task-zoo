@@ -4,7 +4,7 @@
 # You can set these variables from the command line.
 SPHINXOPTS    =
 SPHINXBUILD   = sphinx-build
-SPHINXPROJ    = robosuite
+SPHINXPROJ    = robosuite-task-zoo
 SOURCEDIR     = .
 BUILDDIR      = _build
 
@@ -13,7 +13,7 @@ help:
 	@$(SPHINXBUILD) -M help "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 
 apidoc:
-	@sphinx-apidoc -T --force ../robosuite -o source
+	@sphinx-apidoc -T --force ../robosuite_task_zoo -o source
 
 .PHONY: help Makefile
 

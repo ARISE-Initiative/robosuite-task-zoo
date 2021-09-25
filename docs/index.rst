@@ -11,6 +11,7 @@ Welcome to robosuite's documentation!
    :caption: Introduction
 
    overview
+   installation
    environments
 
 .. toctree::
