@@ -17,6 +17,7 @@ from robosuite_task_zoo.models.multitask_kitchen import PotObject, StoveObject, 
 class MultitaskKitchenDomain(SingleArmEnv):
     """
     Kitchen Env: The task is: place plate on the stove, cook with different ingradients and place the plate on the serving region.
+    
     """
     def __init__(
         self,
@@ -83,7 +84,18 @@ class MultitaskKitchenDomain(SingleArmEnv):
         self.objects = []
 
         self.task_id = task_id
-        self.max_tasks = 12
+
+        self.task_id_mapping = {0: "Task 1, Variant 1",
+                                1: "Task 3, Variant 1",
+                                2: "Task 2, Variant 1",
+                                3: "Task 2, Variant 2",
+                                4: "Task 1, Variant 2",
+                                5: "Task 2, Variant 3",
+                                6: "Task 1, Variant 3",
+                                7: "Task 3, Variant 2",
+                                8: "Task 3, variant 3"}
+        print("The current task info: ", self.task_id_mapping[self.task_id])
+        self.max_tasks = 9
 
         self.steps = 0
 
@@ -111,6 +123,13 @@ class MultitaskKitchenDomain(SingleArmEnv):
             camera_depths=camera_depths,
         )
 
+    def task_info(self, task_id=None):
+        """Print the task id and variant id in the paper"""
+        if task_id is None:
+            return self.task_id_mapping[task_id]
+        else:
+            return self.task_id_mapping[self.task_id]
+        
     def update_task(self, task_id):
         self.task_id = task_id
         assert(self.task_id < self.max_tasks)
