@@ -54,7 +54,6 @@ We provide a brief description of each environment included in this repo. The cu
 
 
 ### MultitaskKitchenDomain
-![env_multitask_kitchen](./images/env_multi_kitchen.png)
 - **Description**: A simple tabletop domain to place a hammer into the cabinet
   and close the cabinet.
 - **Robot-type**: Single-Arm
