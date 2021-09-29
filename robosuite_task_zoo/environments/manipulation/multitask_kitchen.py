@@ -16,8 +16,7 @@ from robosuite_task_zoo.models.multitask_kitchen import PotObject, StoveObject, 
 
 class MultitaskKitchenDomain(SingleArmEnv):
     """
-    Kitchen Env: The task is: place plate on the stove, cook with different ingradients and place the plate on the serving region.
-    
+    MultitaskKitchenDomain: A multi-task environment with different varaints (different initial configurations).
     """
     def __init__(
         self,
@@ -196,7 +195,6 @@ class MultitaskKitchenDomain(SingleArmEnv):
             camera_name="agentview",
             pos=[0.5386131746834771, -4.392035683362857e-09, 1.4903500240372423],
             quat=[0.6380177736282349, 0.3048497438430786, 0.30484986305236816, 0.6380177736282349]
-            # quat=[0.6778516, 0.2013, 0.2013, 0.6778515],
         )
 
         mujoco_arena.set_camera(
@@ -204,7 +202,6 @@ class MultitaskKitchenDomain(SingleArmEnv):
             pos=[0.5586131746834771, 0.3, 1.2903500240372423],
             quat=[0.4144233167171478, 0.3100920617580414,
             0.49641484022140503, 0.6968992352485657]
-            # quat=[0.5644322633743286, 0.4259297549724579, 0.42593055963516235, 0.5644318461418152]
         )
         
         
@@ -400,62 +397,11 @@ class MultitaskKitchenDomain(SingleArmEnv):
                 z_offset=0.01,
             ))
 
-        # if self.task_id != 1:
-        #     self.placement_initializer.append_sampler(
-        #     sampler = UniformRandomSampler(
-        #         name="ObjectSampler-hammer",
-        #         mujoco_objects=self.hammer_object,
-        #         x_range=[-0.05,  -0.01],
-        #         y_range=[0.04, 0.08],                
-        #         z_offset=0.02,
-        #         rotation=(-0.05, 0.05),
-        #         rotation_axis='z',
-        #         ensure_object_boundary_in_range=False,
-        #         ensure_valid_placement=valid_placement,
-        #         reference_pos=self.table_offset,
-        #     ))
-
-        # else:
-        #     self.placement_initializer.append_sampler(
-        #     sampler = UniformRandomSampler(
-        #         name="ObjectSampler-hammer",
-        #         mujoco_objects=self.hammer_object,
-        #         x_range=[0.15,  0.17],
-        #         y_range=[-0.27, -0.25],
-        #         z_offset=0.15,
-        #         rotation=(-0.05, 0.05),
-        #         rotation_axis='z',
-        #         ensure_object_boundary_in_range=False,
-        #         ensure_valid_placement=valid_placement,
-        #         reference_pos=self.table_offset,
-        #     ))
-        
-
         if self.task_id not in []:
-            # if self.task_id == 0:
-            #     self.placement_initializer.append_sampler(
-            #     sampler = UniformRandomSampler(
-            #         name="ObjectSampler-pot",
-            #         mujoco_objects=self.pot_object,
-            #         # x_range=[0.065,  0.075],
-            #         # y_range=[0.165, 0.18],
-            #         x_range=[0.24, 0.25],
-            #         y_range=[0.01, 0.01],
-            #         rotation=(-0.1, 0.1),
-            #         rotation_axis='z',
-            #         ensure_object_boundary_in_range=False,
-            #         ensure_valid_placement=True,
-            #         reference_pos=self.table_offset,
-            #         z_offset=0.0,
-            #     ))
-                
-            # else:
             self.placement_initializer.append_sampler(
             sampler = UniformRandomSampler(
                 name="ObjectSampler-pot",
                 mujoco_objects=self.pot_object,
-                # x_range=[0.065,  0.075],
-                # y_range=[0.165, 0.18],
                 x_range=[0.21, 0.25],
                 y_range=[-0.02, 0.02],
                 rotation=(-0.1, 0.1),
@@ -470,8 +416,6 @@ class MultitaskKitchenDomain(SingleArmEnv):
             sampler = UniformRandomSampler(
                 name="ObjectSampler-pot",
                 mujoco_objects=self.pot_object,
-                # x_range=[0.065,  0.075],
-                # y_range=[0.165, 0.18],
                 x_range=[0.24, 0.25],
                 y_range=[0.15, 0.16],
                 rotation=(-0.1, 0.1),
@@ -494,16 +438,13 @@ class MultitaskKitchenDomain(SingleArmEnv):
             mujoco_objects=mujoco_objects,
         )
         self.stoves = {1: self.stove_object_1,
-                       # 2: self.stove_object_2
         }
 
         self.num_stoves = len(self.stoves.keys())
         
         self.buttons = {1: self.button_object_1,
-                        # 2: self.button_object_2,
         }
         self.buttons_on = {1: False,
-                           # 2: False
         }
 
         self.objects = [
@@ -511,7 +452,6 @@ class MultitaskKitchenDomain(SingleArmEnv):
             self.bread_ingredient,
             self.pot_object,
             self.serving_region,
-            # self.hammer_object,
             self.cabinet_object,
         ]
         
@@ -532,14 +472,9 @@ class MultitaskKitchenDomain(SingleArmEnv):
         # Additional object references from this env
         self.object_body_ids = dict()
         self.object_body_ids["stove_1"] = self.sim.model.body_name2id(self.stove_object_1.root_body)
-        # self.object_body_ids["stove_2"] = self.sim.model.body_name2id(self.stove_object_2.root_body)        
-
-        # self.hammer_object_id = self.sim.model.body_name2id(self.hammer_object.root_body)
         
         self.pot_object_id = self.sim.model.body_name2id(self.pot_object.root_body)
         self.button_qpos_addrs.update({1: self.sim.model.get_joint_qpos_addr(self.button_object_1.joints[0])})
-        # self.button_qpos_addrs.update({2: self.sim.model.get_joint_qpos_addr(self.button_object_2.joints[0])})
-
         self.serving_region_id = self.sim.model.body_name2id(self.serving_region.root_body)
         self.cabinet_qpos_addrs = self.sim.model.get_joint_qpos_addr(self.cabinet_object.joints[0])        
 
@@ -552,8 +487,6 @@ class MultitaskKitchenDomain(SingleArmEnv):
         for obj in self.objects:
             self.obj_body_id[obj.name] = self.sim.model.body_name2id(obj.root_body)
         
-        # self.sim.data.set_joint_qpos(self.button_object_2.joints[0], np.array([-0.4]))
-
     def _setup_observables(self):
         """
         Sets up observables to be used for this environment. Creates object-based observables if enabled
@@ -698,17 +631,6 @@ class MultitaskKitchenDomain(SingleArmEnv):
 
         self.steps = 0
 
-    # def check_pot_contact(self, object_1, object_2):
-    #     return self.check_contact(object_1, self.pot_object) and self.check_contact(object_2, self.pot_object) or (self.check_contact(object_1, self.pot_object) and self.check_contact(object_2, object_1) or self.check_contact(object_2, self.pot_object) and self.check_contact(object_1, object_2))
-
-    # def check_in_drawer(self, object_1, object_2):
-    #     object_1_pos = self.sim.data.body_xpos[self.obj_body_id[object_1.name]]
-    #     object_2_pos = self.sim.data.body_xpos[self.obj_body_id[object_2.name]]
-    #     if object_1_pos[1] < -0.27 and object_2_pos[1] < -0.27 and 1.0 > object_1_pos[2] > 0.94 and 1.0 > object_2_pos[2] > 0.94:
-    #         return True
-    #     else:
-    #         return False
-
     def _check_success(self):
         """
         Check if drawer has been opened.
@@ -716,9 +638,6 @@ class MultitaskKitchenDomain(SingleArmEnv):
         Returns:
             bool: True if drawer has been opened
         """
-        # hinge_qpos = self.sim.data.qpos[self.hinge_qpos_addr]
-        # return hinge_qpos > 0.3
-
         pot_pos = self.sim.data.body_xpos[self.pot_object_id]
         serving_region_pos = self.sim.data.body_xpos[self.serving_region_id]
         dist_serving_pot = serving_region_pos - pot_pos
@@ -811,12 +730,6 @@ class MultitaskKitchenDomain(SingleArmEnv):
     def _pre_action(self, action, policy_step=False):
         super()._pre_action(action, policy_step=policy_step)
 
-        # TODO (Yifeng) : We don't want image observations here
-        # self._history_obs.append(self._get_observations())
-        # for (obs_name, observable) in self._observables.items():
-        #     print(obs_name, "   Enabled: ", observable.is_enabled(), "   Active: ", observable.is_active())
-            # if observable.is_enabled() and observable.is_active():
-            #     print(observable.is)
         self._history_force_torque.push(np.hstack((self.robots[0].ee_force - self.ee_force_bias, self.robots[0].ee_torque - self.ee_torque_bias)))
         self._recent_force_torque.append(np.hstack((self.robots[0].ee_force - self.ee_force_bias, self.robots[0].ee_torque - self.ee_torque_bias)))
 
@@ -827,19 +740,6 @@ class MultitaskKitchenDomain(SingleArmEnv):
 
         # # Check if stove is turned on or not
         self._post_process()
-        # stoves_on = {1: False,
-        #              2: False}
-
-        # for i in range(1, self.num_stoves+1):
-        #     if self.buttons_on[i]:
-        #         if self.sim.data.qpos[self.button_qpos_addrs[i]] < 0.0:
-        #             self.buttons_on[i] = False
-        #     else:
-        #         if self.sim.data.qpos[self.button_qpos_addrs[i]] >= 0.0:
-        #             self.buttons_on[i] = True
-                    
-        # for stove_num, stove_status in self.buttons_on.items():
-        #     self.stoves[stove_num].set_sites_visibility(sim=self.sim, visible=stove_status)
 
         if np.linalg.norm(self.ee_force_bias) == 0:
             self.ee_force_bias = self.robots[0].ee_force
@@ -876,12 +776,6 @@ class MultitaskKitchenDomain(SingleArmEnv):
 
         return np.linalg.norm(self.robots[0].ee_force - self.ee_force_bias) > self.contact_threshold
 
-    # def task_goal(self):
-    #     """
-    #     Determine which task goal the current state is (or -1 if it is not a task goal at all).
-    #     """
-
-    
     def get_state_vector(self, obs):
         return np.concatenate([obs["robot0_gripper_qpos"],
                                obs["robot0_eef_pos"],

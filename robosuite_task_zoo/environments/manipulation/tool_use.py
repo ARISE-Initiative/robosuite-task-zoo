@@ -177,7 +177,6 @@ class ToolUseEnvBase(SingleArmEnv):
             camera_name="agentview",
             pos=[0.5386131746834771, -4.392035683362857e-09, 1.4903500240372423],
             quat=[0.6380177736282349, 0.3048497438430786, 0.30484986305236816, 0.6380177736282349]
-            # quat=[0.6778516, 0.2013, 0.2013, 0.6778515],
         )
 
         mujoco_arena.set_camera(
@@ -185,7 +184,6 @@ class ToolUseEnvBase(SingleArmEnv):
             pos=[0.5586131746834771, 0.3, 1.2903500240372423],
             quat=[0.4144233167171478, 0.3100920617580414,
             0.49641484022140503, 0.6968992352485657]
-            # quat=[0.5644322633743286, 0.4259297549724579, 0.42593055963516235, 0.5644318461418152]
         )
         
         
@@ -273,9 +271,9 @@ class ToolUseEnvBase(SingleArmEnv):
         sampler = UniformRandomSampler(
             name="ObjectSampler-cube",
             mujoco_objects=self.cube,
-            x_range=self.cube_x_range, # [0.29, 0.30],
-            y_range=self.cube_y_range, # [-0.14, -0.12],
-            rotation=self.cube_rotation_range, # (-np.pi / 2., -np.pi / 2.),
+            x_range=self.cube_x_range,
+            y_range=self.cube_y_range,
+            rotation=self.cube_rotation_range,
             rotation_axis='z',
             ensure_object_boundary_in_range=False,
             ensure_valid_placement=True,
@@ -287,9 +285,9 @@ class ToolUseEnvBase(SingleArmEnv):
         sampler = UniformRandomSampler(
             name="ObjectSampler-lshape",
             mujoco_objects=self.lshape_tool,
-            x_range=self.tool_x_range, # [0.07,  0.07],
-            y_range=self.tool_y_range, # [-0.05, -0.05],
-            rotation=self.tool_rotation_range, # (0., 0.),
+            x_range=self.tool_x_range,
+            y_range=self.tool_y_range,
+            rotation=self.tool_rotation_range,
             rotation_axis='z',
             ensure_object_boundary_in_range=False,
             ensure_valid_placement=True,

@@ -169,7 +169,6 @@ class KitchenEnv(SingleArmEnv):
             camera_name="agentview",
             pos=[0.5386131746834771, -4.392035683362857e-09, 1.4903500240372423],
             quat=[0.6380177736282349, 0.3048497438430786, 0.30484986305236816, 0.6380177736282349]
-            # quat=[0.6778516, 0.2013, 0.2013, 0.6778515],
         )
 
         mujoco_arena.set_camera(
@@ -177,7 +176,6 @@ class KitchenEnv(SingleArmEnv):
             pos=[0.5586131746834771, 0.3, 1.2903500240372423],
             quat=[0.4144233167171478, 0.3100920617580414,
             0.49641484022140503, 0.6968992352485657]
-            # quat=[0.5644322633743286, 0.4259297549724579, 0.42593055963516235, 0.5644318461418152]
         )
         
         
@@ -374,8 +372,6 @@ class KitchenEnv(SingleArmEnv):
         for obj in self.objects:
             self.obj_body_id[obj.name] = self.sim.model.body_name2id(obj.root_body)
         
-        # self.sim.data.set_joint_qpos(self.button_object_2.joints[0], np.array([-0.4]))
-
     def _setup_observables(self):
         """
         Sets up observables to be used for this environment. Creates object-based observables if enabled
