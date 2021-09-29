@@ -22,7 +22,7 @@ We provide a brief description of each environment included in this repo. The cu
   - **Robot**: Panda
 - **Action Space**: OSC_POSITION (3) + Gripper (1)
 - **Observations**: Workspace images, Eye-in-Hand images, Proprioception
-- **Reference**: [Bottom-Up Skill Discovery from Unsegmented Demonstrations for Long-Horizon Robot Manipulation](paper_link)
+- **Reference**: [Bottom-Up Skill Discovery from Unsegmented Demonstrations for Long-Horizon Robot Manipulation](http://arxiv.org/abs/2109.13841)
 
 ### HammerPlace
 ![env_hammer_place](./images/env_hammer_place.png)
@@ -36,7 +36,7 @@ We provide a brief description of each environment included in this repo. The cu
   - **Robot**: Panda
 - **Action Space**: OSC_POSITION (3) + Gripper (1)
 - **Observations**: Workspace images, Eye-in-Hand images, Proprioception
-- **Reference**: [Bottom-Up Skill Discovery from Unsegmented Demonstrations for Long-Horizon Robot Manipulation](paper_link)
+- **Reference**: [Bottom-Up Skill Discovery from Unsegmented Demonstrations for Long-Horizon Robot Manipulation](http://arxiv.org/abs/2109.13841)
 
 ### Kitchen
 ![env_kitchen](./images/env_kitchen.png)
@@ -50,7 +50,7 @@ We provide a brief description of each environment included in this repo. The cu
   - **Robot**: Panda
 - **Action Space**: OSC_POSITION (3) + Gripper (1)
 - **Observations**: Workspace images, Eye-in-Hand images, Proprioception
-- **Reference**: [Bottom-Up Skill Discovery from Unsegmented Demonstrations for Long-Horizon Robot Manipulation](paper_link)
+- **Reference**: [Bottom-Up Skill Discovery from Unsegmented Demonstrations for Long-Horizon Robot Manipulation](http://arxiv.org/abs/2109.13841)
 
 
 ### MultitaskKitchenDomain
@@ -66,6 +66,6 @@ We provide a brief description of each environment included in this repo. The cu
   - **Robot**: Panda
 - **Action Space**: OSC_POSITION (3) + Gripper (1)
 - **Observations**: Workspace images, Eye-in-Hand images, Proprioception
-- **Reference**: [Bottom-Up Skill Discovery from Unsegmented Demonstrations for Long-Horizon Robot Manipulation](paper_link)
+- **Reference**: [Bottom-Up Skill Discovery from Unsegmented Demonstrations for Long-Horizon Robot Manipulation](http://arxiv.org/abs/2109.13841)
 
 
