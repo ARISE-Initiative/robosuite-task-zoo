@@ -236,39 +236,6 @@ class MultitaskKitchenDomain(SingleArmEnv):
             mat_attrib={"specular": "1", "shininess": "0.3", "rgba": "0.9 0.9 0.9 1"}
         )
 
-        orange = CustomMaterial(
-            texture="Orange",
-            tex_name="orange",
-            mat_name="MatOrange",
-            tex_attrib={"type": "cube"},
-            mat_attrib={"texrepeat": "3 3", "specular": "0.4","shininess": "0.1"}
-        )
-
-        apple = CustomMaterial(
-            texture="Apple",
-            tex_name="apple",
-            mat_name="MatApple",
-            tex_attrib={"type": "cube"},
-            mat_attrib={"texrepeat": "3 3", "specular": "0.4","shininess": "0.1"}
-        )
-
-        mellon = CustomMaterial(
-            texture="Mellon",
-            tex_name="mellon",
-            mat_name="MatMellon",
-            tex_attrib={"type": "cube"},
-            mat_attrib={"texrepeat": "3 3", "specular": "0.4","shininess": "0.1"}
-        )
-
-        cake = CustomMaterial(
-            texture="Cake",
-            tex_name="cake",
-            mat_name="MatCake",
-            tex_attrib={"type": "cube"},
-            mat_attrib={"texrepeat": "3 3", "specular": "0.4","shininess": "0.1"}
-        )
-        
-        
         tex_attrib = {
             "type": "cube"
         }
