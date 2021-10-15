@@ -1,4 +1,3 @@
-from .new_lift import NewLift
 from .tool_use import ToolUseEnv
 from .hammer_place import HammerPlaceEnv
 from .kitchen import KitchenEnv
