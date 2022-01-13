@@ -320,7 +320,7 @@ class MultitaskKitchenDomain(SingleArmEnv):
                 # self.cleaning_region,
                 self.cabinet_object,
         ]:
-            for material in [darkwood, metal, redwood, ceramic, bluewood, orange]:
+            for material in [darkwood, metal, redwood, ceramic, bluewood]:
                 tex_element, mat_element, _, used = add_material(root=obj_body.worldbody,
                                                                  naming_prefix=obj_body.naming_prefix,
                                                                  custom_material=deepcopy(material))
