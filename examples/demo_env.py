@@ -1,6 +1,4 @@
 import robosuite as suite
-from robosuite.devices import SpaceMouse
-from robosuite.utils.input_utils import input2action
 
 import robosuite_task_zoo
 
@@ -8,9 +6,6 @@ import robosuite.utils.macros as macros
 macros.IMAGE_CONVENTION = "opencv"
 
 from robosuite.environments.base import REGISTERED_ENVS, MujocoEnv
-
-# device = SpaceMouse(9583, 50734, pos_sensitivity=1.0, rot_sensitivity=0.1)
-# device.start_control()
 
 options = {}
 options["robots"] = ["Panda"]
