@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mujoco model="bottle">
+  <visual>
+      <quality shadowsize="4048"/>
+  </visual>
+
+  <worldbody>
+    <body>
+      <body name="object" pos="0.3 0 0">
+        <geom type="capsule"  size="0.0351 .095" rgba="0.8 0.6 0.8 1" pos="0 0 .135" group="0" mass="0.05"/>
+        <geom type="cylinder" size="0.0351 .020" rgba="0.8 0.8 0.8 1" pos="0 0 .020" group="0" mass="0.05"/>
+        <geom type="cylinder" size="0.0150 .007" rgba="0.8 0.8 0.8 1" pos="0 0 .270" group="0" mass="0.05"/>
+        <site name="bottle_handle" pos="0 0 .13" group="2"/>
+        <!-- <freejoint name="Jcup"/> -->
+      </body>
+    </body>
+  </worldbody>
+</mujoco>

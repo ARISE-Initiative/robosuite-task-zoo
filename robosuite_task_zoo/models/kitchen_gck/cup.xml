@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mujoco model="cup">
+  <visual>
+      <quality shadowsize="4048"/>
+  </visual>
+
+  <worldbody>
+    <body>
+      <body name="object" pos="0.3 0 0">
+        <geom type="cylinder" size="0.0401 .010" rgba="0.9 0.9 0 1" pos="0 0 .010" group="0" mass="0.05"/>
+        <geom type="capsule"  size="0.0551 .040" rgba="0.9 0.9 0 1" pos="0 0 .095" group="0" mass="0.05"/>
+        <geom type="cylinder" size="0.0551 .030" rgba="0.9 0.9 0 1" pos="0 0 .165" group="0" mass="0.05"/>
+        
+        <geom type="capsule" size="0.015 .050" rgba="0.9 0.9 0 1" pos="0.11 0 .100" group="0" mass="0.05"/>
+        <geom type="capsule" size="0.015 .035" rgba="0.9 0.9 0 1" pos="0.075 0 .05" euler='0 1.57 0' group="0" mass="0.05"/>
+        <geom type="capsule" size="0.015 .035" rgba="0.9 0.9 0 1" pos="0.075 0 .15" euler='0 1.57 0' group="0" mass="0.05"/>
+        
+        <site name="handle" pos="0 0 .15"/>
+        <!-- <freejoint name="Jcup"/> -->
+      </body>
+    </body>
+  </worldbody>
+</mujoco>
