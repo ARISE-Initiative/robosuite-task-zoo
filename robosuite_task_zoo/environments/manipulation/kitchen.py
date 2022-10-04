@@ -499,7 +499,7 @@ class KitchenEnv(SingleArmEnv):
         Resets simulation internal configurations.
         """
         super()._reset_internal()
-
+        self.has_stove_turned_on = False 
         # Reset all object positions using initializer sampler if we're not directly loading from an xml
         if not self.deterministic_reset:
 
